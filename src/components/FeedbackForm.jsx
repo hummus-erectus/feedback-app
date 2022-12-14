@@ -50,6 +50,8 @@ const handleSubmit = (e) => {
             addFeedback(newFeedback)
         }
 
+        setBtnDisabled(true) 
+        setRating(10) 
         setText('')
     }
 }
@@ -58,7 +60,7 @@ const handleSubmit = (e) => {
         <Card>
             <form onSubmit ={handleSubmit}>
                 <h2>How would you rate your experience with us?</h2>
-                <RatingSelect select={(rating) => setRating(rating)}/>
+                <RatingSelect select={setRating} selected={rating}/>
                 <div className='input-group'>
                     <input onChange={handleTextChange} type='text' placeholder='Write a review' value={text}/>
                     <Button type='submit' isDisabled={btnDisabled}>Send</Button>
